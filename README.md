@@ -1,0 +1,38 @@
+- Performing Google Translate on non-editable PDF's or PDF's that are created from images is not possible. The only solution to extract text from these documents is to perform *OCR* or Optical Character Recognition.
+- The application performs translation *to* and *from* the languages : English, German, Dutch, Cantonese, Malay, Irish, Spanish, French, Japanese
+
+
+### Local Setup and Usage
+
+- The repository can be forked or cloned
+- The dependencies can be installed by running  `pip install -r requirements.txt`
+- `Poppler` must be installed and added to the path
+- The Google Translate API has been used , this needs creation of an account on Google Cloud Platform (the 300 dollar credit for a 1 year period can be used here)
+- This video can be used to enable the Google Translation service : https://www.youtube.com/watch?v=5hTlSGD4_zk
+- The next step is to obtain the JSON file containing credentials of the service account created, this can be followed to do the same : https://www.youtube.com/watch?v=rWcLDax-VmM
+- The created JSON file must be added to the root directory of the project. In the file `app.py` on line 14,  `os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'Path to your Service account JSON credentials file'` must be replaced with the path to the JSON file.
+- On successful installation of streamlit  `streamlit run app.py` to run the application on `localhost 8501`
+
+### Tech Stack and Hosting
+- Streamlit has been used for the UI.
+- Google Translate APIs to perform translation
+- The website is hosted on Heroku.
+
+### Demonstration
+
+![Home Page](assets/Homepage.PNG?raw=true "Home Page")
+
+- This is the deployed application, with the option to choose source and destination language
+- A PDF file (Editable and Non-editable can be uploaded)
+
+
+![German Text](assets/german.PNG?raw=true "German Text")
+
+- This is a snippet from a German Newspaper, the PDF version of this is in the `assets` folder, the same has been used for the demonstration
+
+
+![Translated Text](assets/translated.PNG?raw=true "Translated Page")
+- The German Text is translated to English, the to and from languages are chosen appropriately.
+- On completion the text is displayed and there is also a provision to download the contents into a text file
+
+Feel free to reach out in case of any queries or doubts !
